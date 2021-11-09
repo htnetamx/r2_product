@@ -94,7 +94,7 @@ export class ProductService {
 
 
 
-  async getAllProduct(numPerPage: any, page: any): Promise<Array<ProductBaseModel | null> | null> {
+  async getAllProduct(numPerPage: any, page: any){
     try {
       var promises: Array<Promise<Array<ProductBaseModel | null> | null>> = [];
       const entries = Object.entries(this.repos);

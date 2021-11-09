@@ -22,7 +22,7 @@ export class getAllUseCase
 
   public async execute2(
     numPerPage: any, page:any
-  ): Promise<Array<ProductBaseModel | null> {
+  ){
     const result = await this._ProductService.getAllProduct(numPerPage, page);
     return result;
   }

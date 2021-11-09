@@ -26,4 +26,13 @@ export class RepositoryMongoDB implements IProductRepository {
       return null;
     }
   }
+
+
+  async getAllProduct(params: any) {
+    try {
+      return null;
+    } catch (error) {
+      return null;
+    }
+  }
 }
