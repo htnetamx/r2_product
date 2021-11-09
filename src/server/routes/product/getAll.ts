@@ -9,9 +9,13 @@ export class getAllRoute {
 
   public getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const numPerPage = parseInt(req.params.npp, 10) || 1;
-      const page = parseInt(req.params.page, 10) || 0;
-      const result = await new ProductController().getAll();
+      var { query } = req;
+      const numPerPage = req.query.npp || 10;
+      const page = req.query.page || 1;
+      const result = await new ProductController().getAllProduct(
+        numPerPage,
+        page
+      );
       res.status(200).send(result);
     } catch (e) {}
   };

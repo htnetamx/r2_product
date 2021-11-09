@@ -43,15 +43,15 @@ export class RepositoryMySQL implements IProductRepository {
     }
   }
 
-
-  async getAllProduct(numPerPage: any, page: any){
+  async getAllProduct(numPerPage: any, page: any) {
     try {
       let numRows;
       let queryPagination;
       let numPages;
-      let data: any
+      let data: any;
       let skip = page * numPerPage;
-      let limit = skip + ',' + numPerPage;
+      let limit = skip + "," + numPerPage;
+      console.log(limit);
       if (Connection.mySQL2Pool == null) return null;
       let [results, fields] = await Connection.mySQL2Pool.query({
         sql: "SELECT count(*) as numRows from netamx.Product",
@@ -59,21 +59,19 @@ export class RepositoryMySQL implements IProductRepository {
       data = Object.values(JSON.parse(JSON.stringify(results))) || [];
       numRows = data[0].numRows;
       numPages = Math.ceil(numRows / numPerPage);
-      console.log('number of pages:', numPages);
+      console.log("number of pages:", numPages);
       let [results2, fields2] = await Connection.mySQL2Pool.query({
-        sql:  "SELECT * from netamx.Product order by ID desc limit=" + limit +";",
+        sql:
+          "SELECT * from netamx.Product order by ID desc limit " + limit + ";",
       });
       let data2 = Object.values(JSON.parse(JSON.stringify(results2)));
       let result2 = data2.map<ProductBaseModel>((r) => {
         return new ProductMapperMySQL().mapFrom(r as any);
       });
-      result2
-
-      
+      return result2;
     } catch (error: unknown) {
-      console.log(error)
-      return null
+      console.log(error);
+      return null;
     }
-
   }
 }
