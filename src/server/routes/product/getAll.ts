@@ -17,6 +17,6 @@ export class getAllRoute {
   };
 
   public configureEndPoints(baseUrl: string) {
-    this.server.get(`${baseUrl}/product/`, this.getAll);
+    this.server.get(`${baseUrl}product/`, this.getAll);
   }
 }
