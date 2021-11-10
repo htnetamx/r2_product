@@ -14,7 +14,7 @@ export class RepositoryMySQL implements IProductRepository {
     try {
       if (Connection.mySQL2Pool == null) return null;
       let [results, fields] = await Connection.mySQL2Pool.query(
-        "SELECT * from netamx.Product;"
+        "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id;"
       );
       let data = Object.values(JSON.parse(JSON.stringify(results)));
       let result = data.map<ProductBaseModel>((r) => {
@@ -31,7 +31,10 @@ export class RepositoryMySQL implements IProductRepository {
     try {
       if (Connection.mySQL2Pool == null) return null;
       let [results, fields] = await Connection.mySQL2Pool.query({
-        sql: "SELECT * from netamx.Product where id=" + id + ";",
+        sql:
+          "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id where po.Id=" +
+          id +
+          ";",
       });
       let data = Object.values(JSON.parse(JSON.stringify(results)));
       let entity = new ProductMapperMySQL().mapFrom(data[0] as any);
@@ -62,7 +65,7 @@ export class RepositoryMySQL implements IProductRepository {
       console.log("number of pages:", numPages);
       let [results2, fields2] = await Connection.mySQL2Pool.query({
         sql:
-          "SELECT * from netamx.Product order by ID desc limit " + limit + ";",
+          "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id order by po.Id limit " + limit + ";",
       });
       let data2 = Object.values(JSON.parse(JSON.stringify(results2)));
       let result2 = data2.map<ProductBaseModel>((r) => {

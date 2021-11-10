@@ -5,6 +5,13 @@ export interface ProductMySQL {
   Id: String;
   CreatedOnUtc: Date;
   UpdatedOnUtc: Date;
+  SeoFilename: string;
+  MimeType: string;
+  Price: number;
+  OldPrice: number;
+  CostPrice: number;
+  OrderMinimumQuantity: number;
+  OrderMaximumQuantity: number;
 }
 
 export class User {
