@@ -17,6 +17,20 @@ export class IndexRoute {
     };
 
     public configureEndPoints(baseUrl: string) {
+                /**
+         * @swagger
+         * /:
+         *  get:
+         *    summary: Welcome message
+         *    responses:
+         *      200:
+         *        description: Return a welcome message
+         *        content:
+         *          text/html:
+         *               schema:
+         *                  type: string
+         *                  example: Esta funcionando el mani
+         */
         this.server.get(``, this.welcomeMessage);
         this.server.get(`${baseUrl}`, this.welcomeMessage);
     }
