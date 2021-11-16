@@ -13,6 +13,12 @@ export class ProductMapperMongoDB extends Mapper<
       Sku: "",
       CreatedOnUtc: new Date(),
       UpdatedOnUtc: new Date(),
+      SeoFilename: "",
+      Price: 0,
+      OldPrice: 0,
+      CostPrice: 0,
+      OrderMinimumQuantity: 0,
+      OrderMaximumQuantity: 0,
     };
   }
   mapTo(param: ProductBaseModel): ProductMongoDB {

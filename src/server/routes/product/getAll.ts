@@ -1,6 +1,5 @@
 import { Express, Request, Response, NextFunction } from "express";
 import { ProductController } from "../../../controller/product";
-
 export class getAllRoute {
   private server: Express;
 
@@ -10,7 +9,13 @@ export class getAllRoute {
 
   public getAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await new ProductController().getAll();
+      var { query } = req;
+      const numPerPage = req.query.npp || 10;
+      const page = req.query.page || 1;
+      const result = await new ProductController().getAllProduct(
+        numPerPage,
+        page
+      );
       res.status(200).send(result);
     } catch (e) { }
   };

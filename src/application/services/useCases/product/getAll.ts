@@ -19,4 +19,11 @@ export class getAllUseCase
     const result = await this._ProductService.getAll();
     return result;
   }
+
+  public async execute2(
+    numPerPage: any, page:any
+  ){
+    const result = await this._ProductService.getAllProduct(numPerPage, page);
+    return result;
+  }
 }

@@ -17,4 +17,11 @@ export class ProductController {
     console.log(data);
     return data;
   }
+
+  async getAllProduct(numPerPage: any, page:any): Promise<Array<ProductBaseModel | null> | null> {
+    const useCase = new getAllUseCase();
+    const data = useCase.execute2(numPerPage, page);
+    console.log(data);
+    return data;
+  }
 }
