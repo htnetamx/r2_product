@@ -5,8 +5,8 @@ import {
 import App from "./app";
 import { DataBaseConnections } from "./connections";
 import * as dotenv from "dotenv";
-dotenv.config();
 
+dotenv.config()
 
 const setMongoose = {
   input: {
