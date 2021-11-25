@@ -1,4 +1,4 @@
-import mySQL2 from "mySQL2/promise";
+import mySQL2 from "mysql2/promise";
 import fs from "fs/promises";
 import {
   MySQL2ConnectionInputParams,

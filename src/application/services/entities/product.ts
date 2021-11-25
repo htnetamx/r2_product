@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { User, ProductBaseModel } from "../../../data/entities";
+import { Product, ProductBaseModel } from "../../../data/entities";
 import { IProductRepository } from "../../contracts";
 import { RepositoryMongoDB } from "../../../data/db/mongoDB";
 import { RepositoryMySQL } from "../../../data/db/mySQL";

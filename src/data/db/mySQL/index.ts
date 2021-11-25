@@ -14,7 +14,9 @@ export class RepositoryMySQL implements IProductRepository {
     try {
       if (Connection.mySQL2Pool == null) return null;
       let [results, fields] = await Connection.mySQL2Pool.query(
-        "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id;"
+        `select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId 
+            left join Picture pi on ppm.PictureId = pi.Id
+            where po.MarkAsNew=0 && po.Deleted=0 && po.Deprecated=0;`
       );
       let data = Object.values(JSON.parse(JSON.stringify(results)));
       let result = data.map<ProductBaseModel>((r) => {
@@ -65,7 +67,9 @@ export class RepositoryMySQL implements IProductRepository {
       console.log("number of pages:", numPages);
       let [results2, fields2] = await Connection.mySQL2Pool.query({
         sql:
-          "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id order by po.Id limit " + limit + ";",
+          "select * from Product po left join Product_Picture_Mapping ppm on po.Id = ppm.ProductId left join Picture pi on ppm.PictureId = pi.Id order by po.Id limit " +
+          limit +
+          ";",
       });
       let data2 = Object.values(JSON.parse(JSON.stringify(results2)));
       let result2 = data2.map<ProductBaseModel>((r) => {

@@ -3,7 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
-import * as pkg from "../../package.json";
+//import * as pkg from "../../package.json";
 import swaggerUI from 'swagger-ui-express'
 import swaggerJsDoc from 'swagger-jsdoc'
 import { options } from '../swaggerOptions'
@@ -26,7 +26,7 @@ export class ExpressServer {
   }
 
   private setupStandardMiddleware() {
-    this.server.set("pkg", pkg);
+    //this.server.set("pkg", pkg);
     this.server.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header(

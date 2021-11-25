@@ -1,4 +1,4 @@
-import { Pool } from "mySQL2/promise";
+import { Pool } from "mysql2/promise";
 export type MySQL2ConnectionInputParams = {
   username: string;
   password: string;
