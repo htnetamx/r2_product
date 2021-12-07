@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config()
 
-const hostname = process.env.HOSTNAME || "http://127.0.0.1:3000/"
+const hostname = process.env.HOSTNAME || "http://localhost:3001/"
 
 
 export const options = {
