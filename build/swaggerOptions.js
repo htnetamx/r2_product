@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.options = void 0;
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
-const hostname = process.env.HOSTNAME || "http://127.0.0.1:3000/";
+const hostname = process.env.HOSTNAME || "http://localhost:3001/";
 exports.options = {
     definition: {
         openapi: "3.0.0",
