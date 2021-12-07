@@ -1,7 +1,7 @@
 {
-  "name": "r2_security",
+  "name": "r2_product",
   "version": "0.0.1",
-  "description": "Release 2.0 - Security Microservice",
+  "description": "Release 2.0 - Product Microservice",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node ./build/index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/htnetamx/r2_security.git"
+    "url": "git+https://github.com/htnetamx/r2_product.git"
   },
   "keywords": [],
   "author": "Hugo y Andrés de Neta MX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/htnetamx/r2_security/issues"
+    "url": "https://github.com/htnetamx/r2_product/issues"
   },
-  "homepage": "https://github.com/htnetamx/r2_security#readme",
+  "homepage": "https://github.com/htnetamx/r2_product#readme",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/compression": "^1.7.2",
