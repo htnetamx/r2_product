@@ -25,7 +25,6 @@ RUN npm install && npm cache clean --force
 
 COPY --chown=node:node . .
 
-RUN npm i --save-dev @types/swagger-ui-express @types/swagger-jsdoc
 
 RUN npm run build
 
