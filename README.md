@@ -39,7 +39,7 @@ Compilacion de imagen Docker
 
 Ejecuccion de imagen Docker pasandole el archivo .env 
 
-     docker run --env-file .env -p 3000:3000 r2_product
+     docker run --env-file .env -p 3001:3001 r2_product
 
 Deploy
 ------
