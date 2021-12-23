@@ -14,6 +14,7 @@ class Product {
         this.costPrice = data.CostPrice;
         this.orderMinimumQuantity = data.OrderMinimumQuantity;
         this.orderMaximumQuantity = data.OrderMaximumQuantity;
+        this.images = data.Images;
     }
 }
 exports.Product = Product;

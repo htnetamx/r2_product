@@ -4,7 +4,7 @@ exports.ProductMapperMySQL = void 0;
 const base_1 = require("../../../../application/base");
 class ProductMapperMySQL extends base_1.Mapper {
     mapFrom(param) {
-        var _a, _b;
+        var _a, _b, _c;
         console.log(param);
         var ext = param.MimeType.toString().indexOf("png") >= 0 ? "png" : "jpeg";
         return {
@@ -21,6 +21,11 @@ class ProductMapperMySQL extends base_1.Mapper {
             costPrice: param.CostPrice,
             orderMinimumQuantity: param.OrderMinimumQuantity,
             orderMaximumQuantity: param.OrderMaximumQuantity,
+            images: [
+                typeof param.SeoFilename === undefined || param.SeoFilename === null
+                    ? "https://testinglab.netamx.app/images/thumbs/default-image_450.png"
+                    : `https://testinglab.netamx.app/images/thumbs/${param.Id.toString().padStart(7, "0")}_${(_c = param.SeoFilename) === null || _c === void 0 ? void 0 : _c.toString()}_415.${ext}`,
+            ],
         };
     }
     mapTo(param) {
@@ -38,6 +43,7 @@ class ProductMapperMySQL extends base_1.Mapper {
             CostPrice: param.costPrice,
             OrderMinimumQuantity: param.orderMinimumQuantity,
             OrderMaximumQuantity: param.orderMaximumQuantity,
+            Images: param.images,
         };
     }
 }

@@ -12,6 +12,7 @@ export interface ProductMySQL {
   CostPrice: number;
   OrderMinimumQuantity: number;
   OrderMaximumQuantity: number;
+  Images: Array<string>;
 }
 
 export class User {

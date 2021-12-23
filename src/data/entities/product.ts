@@ -12,6 +12,7 @@ export interface ProductBaseModel {
   costPrice: number;
   orderMinimumQuantity: number;
   orderMaximumQuantity: number;
+  images: Array<string>;
 }
 
 export class Product implements ProductBaseModel {
@@ -30,6 +31,8 @@ export class Product implements ProductBaseModel {
   public orderMinimumQuantity: number;
   public orderMaximumQuantity: number;
 
+  public images: Array<string>;
+
   constructor(data: ProductInputModel) {
     this.id = data.Id;
     this.name = data.Name;
@@ -42,5 +45,6 @@ export class Product implements ProductBaseModel {
     this.costPrice = data.CostPrice;
     this.orderMinimumQuantity = data.OrderMinimumQuantity;
     this.orderMaximumQuantity = data.OrderMaximumQuantity;
+    this.images = data.Images;
   }
 }

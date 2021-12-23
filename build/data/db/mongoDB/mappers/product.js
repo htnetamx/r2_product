@@ -17,6 +17,7 @@ class ProductMapperMongoDB extends base_1.Mapper {
             costPrice: 0,
             orderMinimumQuantity: 0,
             orderMaximumQuantity: 0,
+            images: [],
         };
     }
     mapTo(param) {

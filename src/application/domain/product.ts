@@ -10,4 +10,5 @@ export interface ProductInputModel {
   CostPrice: number;
   OrderMinimumQuantity: number;
   OrderMaximumQuantity: number;
+  Images: Array<string>;
 }

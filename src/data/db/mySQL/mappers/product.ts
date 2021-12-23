@@ -24,6 +24,14 @@ export class ProductMapperMySQL extends Mapper<ProductMySQL, ProductBaseModel> {
       costPrice: param.CostPrice,
       orderMinimumQuantity: param.OrderMinimumQuantity,
       orderMaximumQuantity: param.OrderMaximumQuantity,
+      images: [
+        typeof param.SeoFilename === undefined || param.SeoFilename === null
+          ? "https://testinglab.netamx.app/images/thumbs/default-image_450.png"
+          : `https://testinglab.netamx.app/images/thumbs/${param.Id.toString().padStart(
+              7,
+              "0"
+            )}_${param.SeoFilename?.toString()}_415.${ext}`,
+      ],
     };
   }
   mapTo(param: ProductBaseModel): ProductMySQL {
@@ -40,6 +48,7 @@ export class ProductMapperMySQL extends Mapper<ProductMySQL, ProductBaseModel> {
       CostPrice: param.costPrice,
       OrderMinimumQuantity: param.orderMinimumQuantity,
       OrderMaximumQuantity: param.orderMaximumQuantity,
+      Images: param.images,
     };
   }
 }
